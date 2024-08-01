@@ -3,6 +3,7 @@ from tkinter import filedialog
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
+import threading as thd
 
 import matplotlib
 matplotlib.use("TkAgg")
@@ -52,14 +53,24 @@ def data_integration(data,under=2.2,over=2.6,avgunder=2.65,avgover=2.8 ):
 def predict(signal,c):
     return c[0]*signal + c[1]
 
-def UploadAction(event=None):
-    global filename
-    filename = filedialog.askopenfilename()
-    lbl.config(text=('Selected:'+filename))
+def thickcal(filename):
     global data
     data = dataimporter(filename)
     thick = predict(data_integration([data]),np.array([0.0059018,1.92601479]))
     thickness.config(text=("Thickness: " + f"{thick[0]:.2f}" + "nm"))
+
+def UploadAction(event=None):
+    global filename
+    filename = filedialog.askopenfilename()
+    thickcal(filename)
+    
+def Uploadbutton():
+    global submit_thread
+    submit_thread = thd.Thread(target=UploadAction)
+    submit_thread.daemon = True
+    submit_thread.start()
+    # root.after(20, lbl.config(text=('Selected:'+filename)))
+    
     
 Molines = [2.29316, 2.28985, 2.39481, 2.5183]
 Silines = [1.73998,1.73938, 1.83594]
@@ -107,9 +118,6 @@ root.geometry("1000x1000")
 root.title("Thickness calculator")
 root.tk.call("tk","scaling",3.0)
 
-lbl = tk.Label(root,text="Test")
-lbl.pack()
-
 thickness = tk.Label(root,text="Thickness")
 thickness.pack()
 
@@ -117,7 +125,7 @@ thickness.pack()
 # quitbutton.pack()
 
 # Create an "Import File" button
-button = tk.Button(root, text='Open', command=UploadAction)
+button = tk.Button(root, text='Open', command=lambda: Uploadbutton())
 button.pack()
 
 scatter = FigureCanvasTkAgg(fig, root)
@@ -151,7 +159,7 @@ def plottbutton():
     scatter.draw()
     
     
-plott = tk.Button(root, text='Plott', command=plottbutton)
+plott = tk.Button(root, text='Plott', command=lambda: thd.Thread(target=plottbutton).start())
 plott.pack()
 
 
