@@ -6,6 +6,7 @@ import threading
 from tkinter import filedialog
 from tkinter import *
 from tkinter import ttk
+from PIL import Image, ImageTk
 import tkinter as tk
 import pandas as pd
 import numpy as np
@@ -66,9 +67,9 @@ def start_submit_thread(event):
     global submit_thread
     submit_thread = threading.Thread(target=submit)
     submit_thread.daemon = True
-    progressbar.start()
+    # progressbar.start()
     submit_thread.start()
-    root.after(20, check_submit_thread)
+    # root.after(20, check_submit_thread)
 
 def check_submit_thread():
     if submit_thread.is_alive():
@@ -141,10 +142,21 @@ frame = ttk.Frame(root)
 frame.pack()
 thickness = tk.Label(root,text="Thickness")
 thickness.pack()
+
+current = tk.Label(root,text="Settings:Votalge: 10keV, Current settigns: 6")
+current.pack()
+
+image = Image.open('settings.png')
+img1 = image.resize((450, 400))
+image = ImageTk.PhotoImage(img1)
+
+image_label = tk.Label(root, image=image)
+image_label.pack()
+
 # scatter = FigureCanvasTkAgg(fig, root)
 # scatter.get_tk_widget().pack() #fill='both', expand=True)
-progressbar = ttk.Progressbar(frame, mode='indeterminate')
-progressbar.grid(column=1, row=0, sticky=W)
+# progressbar = ttk.Progressbar(frame, mode='indeterminate')
+# progressbar.grid(column=1, row=0, sticky=W)
 
 ttk.Button(frame, text="Check",
        command=lambda:start_submit_thread(None)).grid(column=0,    row=1,sticky=E)
