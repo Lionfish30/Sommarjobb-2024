@@ -13,6 +13,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 import matplotlib
+import os
 matplotlib.use("TkAgg")
 
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
@@ -146,7 +147,11 @@ thickness.pack()
 current = tk.Label(root,text="Settings:Votalge: 10keV, Current settigns: 6")
 current.pack()
 
-image = Image.open('settings.png')
+base_dir = os.path.dirname(__file__)
+file_path = os.path.join(base_dir, 'settings.png')
+
+
+image = Image.open(file_path)
 img1 = image.resize((450, 400))
 image = ImageTk.PhotoImage(img1)
 
