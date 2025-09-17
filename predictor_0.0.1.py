@@ -36,7 +36,7 @@ def find_nearest(array, value):
 def thickcal(filename):
     global data
     data = dataimporter(filename)
-    thick = predict(data_integration([data]),np.array([0.00641112,0.83455477]))
+    thick = predict(data_integration([data]),np.array([0.00304115, -0.00488594]))
     thickness.config(text=("Thickness: " + f"{thick[0]:.2f}" + "nm"))
 
 def predict(signal,c):

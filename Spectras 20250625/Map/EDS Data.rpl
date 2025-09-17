@@ -1,0 +1,10 @@
+(
+(MLX::WIDTH 23)
+(MLX::HEIGHT 13)
+(MLX::DEPTH 2048)
+(MLX::OFFSET 0)
+(MLX::DATA-LENGTH 4)
+(MLX::DATA-TYPE :signed)
+(MLX::BYTE-ORDER :little-endian)
+(MLX::RECORD-BY :image)
+)
