@@ -1,0 +1,13 @@
+//Exported ASCII-File
+[Header]
+FileName = D:\User\CMAL users\Chalmers\Physics\EOG\Eric Ljungberg\EXChip 7\EXChips_1.wip
+GraphName = ExChip_7_E10_Bulk
+SizeX = 1
+SizeY = 1
+SizeGraph = 1600
+PositionUnit = µm
+PositionX = -3557.8
+PositionY = 8370.3
+PositionZ = 0
+XAxisUnit = rel. 1/cm
+DataUnit = CCD cts

@@ -1,0 +1,13 @@
+//Exported ASCII-File
+[Header]
+FileName = 
+GraphName = ExChip_7_E10_Thin
+SizeX = 1
+SizeY = 1
+SizeGraph = 1600
+PositionUnit = µm
+PositionX = -3568.3
+PositionY = 8341.6
+PositionZ = 0
+XAxisUnit = rel. 1/cm
+DataUnit = CCD cts

@@ -1,0 +1,13 @@
+//Exported ASCII-File
+[Header]
+FileName = 
+GraphName = ExChip_7_M11_Area1.Data 1
+SizeX = 1
+SizeY = 1
+SizeGraph = 1600
+PositionUnit = µm
+PositionX = -4501.2
+PositionY = 6674.2
+PositionZ = 0
+XAxisUnit = rel. 1/cm
+DataUnit = CCD cts

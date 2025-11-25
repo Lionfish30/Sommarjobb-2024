@@ -1,0 +1,13 @@
+//Exported ASCII-File
+[Header]
+FileName = D:\User\CMAL users\Chalmers\Physics\EOG\Eric Ljungberg\EXChip 7\EXChips_1.wip
+GraphName = ExChip_7_M11_Area2_3.Data 1
+SizeX = 1
+SizeY = 1
+SizeGraph = 1600
+PositionUnit = µm
+PositionX = -4482.4
+PositionY = 6639.2
+PositionZ = 0
+XAxisUnit = rel. 1/cm
+DataUnit = CCD cts
